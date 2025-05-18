@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Torneo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --verde-tenis: #0db611;
+            --naranja-padel: #FF6B35;
+            --amarillo-pelota: #FFD166;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(13, 182, 17, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 20%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .tennis-ball {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: var(--amarillo-pelota);
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: -1;
+            animation: bounce 8s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(50px, 100px); }
+            50% { transform: translate(100px, 0); }
+            75% { transform: translate(50px, -100px); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            border: 3px solid var(--verde-tenis);
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, var(--verde-tenis), var(--naranja-padel));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .form-header h2 {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .form-header::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: white;
+            rotate: 45deg;
+            z-index: 1;
+        }
+        
+        .form-body {
+            padding: 30px;
+        }
+        
+        .form-control:focus {
+            border-color: var(--verde-tenis);
+            box-shadow: 0 0 0 0.25rem rgba(13, 182, 17, 0.25);
+        }
+        
+        .btn-register {
+            background: linear-gradient(to right, var(--verde-tenis), var(--naranja-padel));
+            border: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            background-size: 200% auto;
+        }
+        
+        .btn-register:hover {
+            background-position: right center;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .photo-upload {
+            border: 2px dashed var(--verde-tenis);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .photo-upload:hover {
+            background-color: rgba(13, 182, 17, 0.05);
+            border-color: var(--naranja-padel);
+        }
+        
+        .photo-upload i {
+            font-size: 2rem;
+            color: var(--verde-tenis);
+            margin-bottom: 10px;
+        }
+        
+        .racket-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            color: var(--verde-tenis);
+            opacity: 0.3;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <%- include('./partials/header') %>
+
+    <!-- Formulario de Registro -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- Elementos decorativos -->
+                    <div class="tennis-ball" style="top: 20%; left: 5%;"></div>
+                    <div class="tennis-ball" style="top: 60%; right: 5%; animation-delay: 2s;"></div>
+                    <i class="fas fa-table-tennis racket-icon" style="top: 15%; right: 15%;"></i>
+                    <i class="fas fa-table-tennis racket-icon" style="bottom: 15%; left: 15%; transform: rotate(45deg);"></i>
+                    
+                    <!-- Contenedor del formulario -->
+                    <div class="form-container">
+                        <div class="form-header">
+                            <h2><i class="fas fa-table-tennis me-2"></i> Registro al Torneo</h2>
+                            <p class="mb-0">Completa tus datos para participar</p>
+                        </div>
+                        
+                        <div class="form-body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="nombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" required placeholder="Ej: Carlos">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="apellido" class="form-label">Apellido</label>
+                                        <input type="text" class="form-control" id="apellido" required placeholder="Ej: Alcaraz">
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                        <input type="date" class="form-control" id="fechaNacimiento" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="dni" class="form-label">DNI</label>
+                                        <input type="text" class="form-control" id="dni" required placeholder="Ej: 12345678A">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" required placeholder="Ej: jugador@example.com">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label">Foto de Perfil</label>
+                                    <div class="photo-upload">
+                                        <i class="fas fa-camera"></i>
+                                        <p>Arrastra tu foto aquí o haz clic para seleccionar</p>
+                                        <input type="file" id="fotoPerfil" accept="image/*" style="display: none;">
+                                        <button type="button" class="btn btn-sm btn-outline-success mt-2" onclick="document.getElementById('fotoPerfil').click()">
+                                            Seleccionar Archivo
+                                        </button>
+                                    </div>
+                                    <div class="small text-muted mt-1">Formatos aceptados: JPG, PNG (Máx. 2MB)</div>
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-register btn-lg text-white py-3">
+                                        <i class="fas fa-table-tennis me-2"></i> Registrar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Torneo Deportivo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animación para mostrar el nombre del archivo seleccionado
+        document.getElementById('fotoPerfil').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'Ningún archivo seleccionado';
+            const uploadArea = document.querySelector('.photo-upload p');
+            uploadArea.textContent = fileName;
+        });
+    </script>
+</body>
+</html>

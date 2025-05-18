@@ -1,0 +1,195 @@
+:root {
+    --verde-padel: #0db611;
+    --naranja-padel: #FF6B35;
+    --gris-oscuro: #2c3e50;
+    --gris-claro: #ecf0f1;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.edit-profile-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+/* Header */
+.edit-header {
+    background: linear-gradient(135deg, var(--gris-oscuro), #34495e);
+    color: white;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.edit-header .container {
+    display: flex;
+    align-items: center;
+}
+
+.edit-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.back-link {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.back-link:hover {
+    color: var(--gris-claro);
+    transform: translateX(-3px);
+}
+
+/* Formulario */
+.edit-form-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+}
+
+.form-section h2 {
+    color: var(--gris-oscuro);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Sección Foto */
+.photo-section {
+    text-align: center;
+}
+
+.photo-preview {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+#profilePhoto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.photo-upload-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--verde-padel);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.photo-upload-btn:hover {
+    background: #0ca00e;
+    transform: translateY(-2px);
+}
+
+/* Campos del formulario */
+.form-label {
+    font-weight: 600;
+    color: var(--gris-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--verde-padel);
+    box-shadow: 0 0 0 0.25rem rgba(13, 182, 17, 0.25);
+}
+
+/* Botones de acción */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-save {
+    background-color: var(--verde-padel);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-save:hover {
+    background-color: #0ca00e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-cancel {
+    background-color: white;
+    color: var(--gris-oscuro);
+    border: 1px solid #ddd;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-cancel:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Mostrar/ocultar contraseña */
+.toggle-password {
+    border-radius: 0 8px 8px 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .edit-form-container {
+        padding: 1.5rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-save, .btn-cancel {
+        width: 100%;
+    }
+}

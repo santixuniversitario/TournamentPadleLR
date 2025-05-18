@@ -1,0 +1,152 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #006eff;
+}
+
+/* Encabezado con fondo verde */
+header {
+    background-color: #0db611; /* Verde especificado */
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Logo */
+.logo img {
+    height: 150px; /* Ajusta según tu logo */
+}
+
+/* Barra de navegación */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem; /* Espacio entre elementos */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f0f0f0;
+}
+
+/* Botón de Login */
+.login-btn {
+    background-color: white;
+    color: #0db611;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Contenido principal y footer */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #35424a;
+    color: white;
+}
+
+/* Estilo deportivo y limpio */
+:root {
+    --color-primary: #0db611; /* Verde del torneo */
+}
+
+/* Efectos para botones */
+.btn-hover {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.btn-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-hover:active {
+    transform: translateY(1px);
+}
+
+/* Carrusel personalizado */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+/* Sponsor hover */
+.sponsor-img {
+    transition: transform 0.3s;
+}
+
+.sponsor-img:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* Ajustes para móvil */
+@media (max-width: 992px) {
+    /* Centrar logo y burger menu */
+    .navbar-brand {
+        margin-right: auto;
+    }
+    
+    /* Estilo del menú desplegable */
+    .navbar-collapse {
+        background-color: #0db611;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 5px;
+    }
+    
+    /* Botón Login en móvil (dentro del menú) */
+    .navbar-nav .btn {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Efecto hover para enlaces del menú */
+.nav-link {
+    transition: color 0.3s;
+}
+.nav-link:hover {
+    color: #f0f0f0 !important;
+}
+
