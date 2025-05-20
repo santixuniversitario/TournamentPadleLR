@@ -30,7 +30,7 @@ header {
 .hero-section {
     position: relative;
     height: 100vh;
-    background: url('../images/fondo-torneo.jpg') no-repeat center center;
+    background: url('https://alquilatucancha-public.s3.sa-east-1.amazonaws.com/production/public/clubs/bg/mg-padel-center-monte-grande.jpeg?159653') no-repeat center center;
     background-size: cover;
     display: flex;
     align-items: center;

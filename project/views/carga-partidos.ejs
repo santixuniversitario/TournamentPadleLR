@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carga de Partidos | Torneo Pádel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/carga-partidos.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="match-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="torneo.html">
+                        <i class="fas fa-arrow-left me-2"></i> Volver
+                    </a>
+                    <h1 class="match-title">CARGA DE PARTIDOS</h1>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Formulario -->
+    <main class="match-form-container">
+        <form id="matchForm">
+            <!-- Selección de Jugadores -->
+            <div class="form-section">
+                <h2><i class="fas fa-users me-2"></i> Selección de Jugadores</h2>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="team-title">Equipo 1</h4>
+                        <div class="mb-3">
+                            <label for="player1" class="form-label">Jugador 1*</label>
+                            <select class="form-select player-select" id="player1" required>
+                                <option value="" selected disabled>Seleccionar jugador...</option>
+                                <option value="1">Martín López (Rank: 3)</option>
+                                <option value="2">Carlos Sánchez (Rank: 5)</option>
+                                <option value="3">Ana Torres (Rank: 2)</option>
+                                <option value="4">Javier Ruiz (Rank: 7)</option>
+                                <!-- Más jugadores cargados desde DB -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="player2" class="form-label">Jugador 2*</label>
+                            <select class="form-select player-select" id="player2" required>
+                                <option value="" selected disabled>Seleccionar jugador...</option>
+                                <option value="1">Martín López (Rank: 3)</option>
+                                <option value="2">Carlos Sánchez (Rank: 5)</option>
+                                <option value="3">Ana Torres (Rank: 2)</option>
+                                <option value="4">Javier Ruiz (Rank: 7)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h4 class="team-title">Equipo 2</h4>
+                        <div class="mb-3">
+                            <label for="player3" class="form-label">Jugador 3*</label>
+                            <select class="form-select player-select" id="player3" required>
+                                <option value="" selected disabled>Seleccionar jugador...</option>
+                                <option value="1">Martín López (Rank: 3)</option>
+                                <option value="2">Carlos Sánchez (Rank: 5)</option>
+                                <option value="3">Ana Torres (Rank: 2)</option>
+                                <option value="4">Javier Ruiz (Rank: 7)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="player4" class="form-label">Jugador 4*</label>
+                            <select class="form-select player-select" id="player4" required>
+                                <option value="" selected disabled>Seleccionar jugador...</option>
+                                <option value="1">Martín López (Rank: 3)</option>
+                                <option value="2">Carlos Sánchez (Rank: 5)</option>
+                                <option value="3">Ana Torres (Rank: 2)</option>
+                                <option value="4">Javier Ruiz (Rank: 7)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning" id="playerWarning" style="display: none;">
+                    <i class="fas fa-exclamation-triangle me-2"></i> ¡No puede haber jugadores repetidos en el mismo partido!
+                </div>
+            </div>
+
+            <!-- Selección de Cancha y Horario -->
+            <div class="form-section">
+                <h2><i class="fas fa-calendar-alt me-2"></i> Organización del Partido</h2>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="courtSelect" class="form-label">Cancha*</label>
+                        <select class="form-select" id="courtSelect" required>
+                            <option value="" selected disabled>Seleccionar cancha...</option>
+                            <option value="1">Club Pádel BA - Cancha 1 (Cubierta)</option>
+                            <option value="2">Club Pádel BA - Cancha 2 (Cubierta)</option>
+                            <option value="3">Pádel Center - Cancha 1 (Exterior)</option>
+                            <option value="4">Pádel Center - Cancha 2 (Exterior)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <label for="matchDate" class="form-label">Fecha*</label>
+                        <input type="date" class="form-control" id="matchDate" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="matchTime" class="form-label">Hora de inicio*</label>
+                        <input type="time" class="form-control" id="matchTime" required>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <label for="matchDuration" class="form-label">Duración estimada*</label>
+                        <select class="form-select" id="matchDuration" required>
+                            <option value="60">1 hora</option>
+                            <option value="90" selected>1 hora 30 minutos</option>
+                            <option value="120">2 horas</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="matchNotes" class="form-label">Observaciones</label>
+                    <textarea class="form-control" id="matchNotes" rows="2" placeholder="Detalles especiales del partido..."></textarea>
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="cancelMatchBtn">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-calendar-check me-2"></i> Programar Partido
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Modal de Confirmación -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Partido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="confirmationDetails">
+                    <!-- Detalles del partido se insertarán aquí -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Atrás</button>
+                    <button type="button" class="btn btn-success" id="confirmMatchBtn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascripts/carga-partidos.js"></script>
+</body>
+</html>

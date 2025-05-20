@@ -1,0 +1,384 @@
+:root {
+    --verde-padel: #0db611;
+    --naranja-padel: #FF6B35;
+    --gris-oscuro: #2c3e50;
+    --azul-equipo: #3498db;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: var(--gris-oscuro);
+}
+
+/* Header */
+.registration-header {
+    background: linear-gradient(135deg, var(--gris-oscuro), #34495e);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.registration-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Contenedor Principal */
+.registration-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Información del Torneo */
+.tournament-info .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.tournament-info .card-title {
+    color: var(--verde-padel);
+    margin-bottom: 1.5rem;
+}
+
+.tournament-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gris-oscuro);
+}
+
+.detail-item i {
+    color: var(--naranja-padel);
+}
+
+/* Formulario de Inscripción */
+.registration-form {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-step h3 {
+    color: var(--gris-oscuro);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Opciones de Categoría */
+.category-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.category-label {
+    display: block;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-label:hover {
+    border-color: var(--verde-padel);
+    background-color: rgba(13, 182, 17, 0.05);
+}
+
+.form-check-input:checked + .category-label {
+    border-color: var(--verde-padel);
+    background-color: rgba(13, 182, 17, 0.1);
+}
+
+.category-label strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--gris-oscuro);
+}
+
+.category-label span {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+/* Selección de Jugadores */
+.player-select-title {
+    color: var(--gris-oscuro);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.player-select-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.3s;
+}
+
+.player-select-card:hover {
+    border-color: var(--azul-equipo);
+}
+
+.player-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.player-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #eee;
+}
+
+.player-details {
+    flex: 1;
+}
+
+.player-select {
+    margin-bottom: 0.5rem;
+}
+
+.player-stats div {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+.player-stats i {
+    color: var(--naranja-padel);
+    width: 20px;
+    text-align: center;
+}
+
+/* Confirmación */
+.confirmation-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.confirmation-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.confirmation-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.confirmation-section h4 {
+    color: var(--gris-oscuro);
+    margin-bottom: 1rem;
+}
+
+.confirmation-item {
+    display: flex;
+    margin-bottom: 0.75rem;
+}
+
+.confirmation-label {
+    font-weight: 600;
+    min-width: 150px;
+    color: var(--gris-oscuro);
+}
+
+.team-members {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.team-member img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.team-member h5 {
+    margin: 0;
+    color: var(--gris-oscuro);
+}
+
+.team-member div span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.team-member .badge {
+    margin-left: auto;
+}
+
+/* Métodos de Pago */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.payment-methods .form-check {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.payment-methods .form-check-input:checked + label {
+    color: var(--verde-padel);
+}
+
+.payment-methods .form-check-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.payment-logo {
+    height: 24px;
+}
+
+.payment-icon {
+    color: var(--verde-padel);
+    font-size: 1.25rem;
+}
+
+/* Botones */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.btn-next, .btn-success {
+    background-color: var(--verde-padel);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-next:hover, .btn-success:hover {
+    background-color: #0ca00e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-prev {
+    background-color: white;
+    color: var(--gris-oscuro);
+    border: 1px solid #ddd;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-prev:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Modal de Éxito */
+.success-icon {
+    font-size: 4rem;
+    color: var(--verde-padel);
+    margin-bottom: 1rem;
+}
+
+.confirmation-number {
+    background-color: #f5f5f5;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.confirmation-number strong {
+    font-size: 1.25rem;
+    color: var(--verde-padel);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .registration-container {
+        padding: 0 1rem;
+    }
+    
+    .tournament-details {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .player-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .player-avatar {
+        margin-bottom: 1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+    
+    .btn-next, .btn-prev, .btn-success {
+        width: 100%;
+    }
+    
+    .confirmation-item {
+        flex-direction: column;
+    }
+    
+    .confirmation-label {
+        min-width: auto;
+        margin-bottom: 0.25rem;
+    }
+}

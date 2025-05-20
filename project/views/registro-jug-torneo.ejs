@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción al Torneo | Torneo Pádel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/registro-jug-torneo.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="registration-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        <i class="fas fa-arrow-left me-2"></i> Volver
+                    </a>
+                    <h1 class="registration-title">INSCRIPCIÓN AL TORNEO</h1>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="registration-container">
+        <!-- Información del Torneo -->
+        <section class="tournament-info">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Torneo de CANDU 2025</h2>
+                    <div class="tournament-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Del 15/06/2026 al 25/06/2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Club Golden Point</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Cierre de inscripción: 10/06/2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proceso de Inscripción -->
+        <form id="registrationForm" class="registration-form">
+            <!-- Paso 1: Selección de Categoría -->
+            <div class="form-step active" id="step1">
+                <h3><i class="fas fa-trophy me-2"></i> Paso 1: Selecciona tu categoría</h3>
+                <div class="category-options">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="category1" value="1" checked>
+                        <label class="form-check-label category-label" for="category1">
+                            <strong>7ma Hombres</strong>
+                            <span>Nivel: Intermedio</span>
+                            <span>Cuota: $5.000 por equipo</span>
+                            <span>20 equipos inscritos (40 máximo)</span>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="category2" value="2">
+                        <label class="form-check-label category-label" for="category2">
+                            <strong>5ta Mixta</strong>
+                            <span>Nivel: Avanzado</span>
+                            <span>Cuota: $6.000 por equipo</span>
+                            <span>15 equipos inscritos (24 máximo)</span>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="category3" value="3">
+                        <label class="form-check-label category-label" for="category3">
+                            <strong>8va Mujeres</strong>
+                            <span>Nivel: Intermedio</span>
+                            <span>Cuota: $4.500 por equipo</span>
+                            <span>12 equipos inscritos (20 máximo)</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-next" id="nextToStep2">Siguiente <i class="fas fa-arrow-right ms-2"></i></button>
+                </div>
+            </div>
+
+            <!-- Paso 2: Selección de Jugadores -->
+            <div class="form-step" id="step2">
+                <h3><i class="fas fa-users me-2"></i> Paso 2: Forma tu equipo</h3>
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i> Selecciona los dos jugadores que formarán el equipo
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <h4 class="player-select-title">Jugador 1 <span class="badge bg-primary">Capitan</span></h4>
+                        <div class="player-select-card">
+                            <div class="player-info">
+                               <!-- <img src="images/user-default.jpg" alt="Jugador 1" class="player-avatar"> -->
+                                <i class="fa-solid fa-user"></i>
+                                <div class="player-details">
+                                    <select class="form-select player-select" id="player1" required>
+                                        <option value="" selected disabled>Selecciona un jugador...</option>
+                                        <option value="1" data-handicap="4.5" data-avatar="images/jugador1.jpg">Martín López (Handicap: 4.5)</option>
+                                        <option value="2" data-handicap="3.0" data-avatar="images/jugador2.jpg">Carlos Sánchez (Handicap: 3.0)</option>
+                                        <option value="3" data-handicap="5.0" data-avatar="images/jugador3.jpg">Ana Torres (Handicap: 5.0)</option>
+                                        <option value="4" data-handicap="4.0" data-avatar="images/jugador4.jpg">Javier Ruiz (Handicap: 4.0)</option>
+                                    </select>
+                                    <div class="player-stats" id="player1Stats">
+                                        <div><i class="fas fa-medal"></i> <span>Handicap: -</span></div>
+                                        <div><i class="fas fa-trophy"></i> <span>Ranking: -</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <h4 class="player-select-title">Jugador 2</h4>
+                        <div class="player-select-card">
+                            <div class="player-info">
+                               <!-- <img src="images/user-default.jpg" alt="Jugador 2" class="player-avatar"> -->
+                                <i class="fa-solid fa-user"></i>
+                                <div class="player-details">
+                                    <select class="form-select player-select" id="player2" required>
+                                        <option value="" selected disabled>Selecciona un jugador...</option>
+                                        <option value="1" data-handicap="4.5" data-avatar="images/jugador1.jpg">Martín López (Handicap: 4.5)</option>
+                                        <option value="2" data-handicap="3.0" data-avatar="images/jugador2.jpg">Carlos Sánchez (Handicap: 3.0)</option>
+                                        <option value="3" data-handicap="5.0" data-avatar="images/jugador3.jpg">Ana Torres (Handicap: 5.0)</option>
+                                        <option value="4" data-handicap="4.0" data-avatar="images/jugador4.jpg">Javier Ruiz (Handicap: 4.0)</option>
+                                    </select>
+                                    <div class="player-stats" id="player2Stats">
+                                        <div><i class="fas fa-medal"></i> <span>Handicap: -</span></div>
+                                        <div><i class="fas fa-trophy"></i> <span>Ranking: -</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning" id="playerWarning" style="display: none;">
+                    <i class="fas fa-exclamation-triangle me-2"></i> ¡No puedes seleccionar el mismo jugador para ambos puestos!
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-prev" id="prevToStep1"><i class="fas fa-arrow-left me-2"></i> Anterior</button>
+                    <button type="button" class="btn btn-next" id="nextToStep3">Siguiente <i class="fas fa-arrow-right ms-2"></i></button>
+                </div>
+            </div>
+
+            <!-- Paso 3: Confirmación y Pago -->
+            <div class="form-step" id="step3">
+                <h3><i class="fas fa-check-circle me-2"></i> Paso 3: Confirma tu inscripción</h3>
+                
+                <div class="confirmation-card">
+                    <div class="confirmation-section">
+                        <h4>Detalles del Torneo</h4>
+                        <div class="confirmation-item">
+                            <span class="confirmation-label">Categoría:</span>
+                            <span id="confirmCategory">7ma Hombres</span>
+                        </div>
+                        <div class="confirmation-item">
+                            <span class="confirmation-label">Cuota de inscripción:</span>
+                            <span id="confirmFee">$5.000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="confirmation-section">
+                        <h4>Composición del Equipo</h4>
+                        <div class="team-members">
+                            <div class="team-member">
+                                <img src="images/user-default.jpg" alt="Jugador 1" id="confirmPlayer1Avatar">
+                                <i class="fa-solid fa-user"></i>
+                                <div>
+                                    <h5 id="confirmPlayer1Name">-</h5>
+                                    <div><i class="fas fa-medal"></i> <span id="confirmPlayer1Handicap">Handicap: -</span></div>
+                                </div>
+                                <span class="badge bg-primary">Capitan</span>
+                            </div>
+                            <div class="team-member">
+                                <img src="images/user-default.jpg" alt="Jugador 2" id="confirmPlayer2Avatar">
+                                <i class="fa-solid fa-user"></i>
+                                <div>
+                                    <h5 id="confirmPlayer2Name">-</h5>
+                                    <div><i class="fas fa-medal"></i> <span id="confirmPlayer2Handicap">Handicap: -</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="confirmation-section">
+                        <h4>Método de Pago</h4>
+                        <div class="payment-methods">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="mercadopago" value="mercadopago" checked>
+                                <label class="form-check-label" for="mercadopago">
+                                    <img src="images/mercadopago-logo.png" alt="Mercado Pago" class="payment-logo">
+                                    Pago online con Mercado Pago
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="transfer" value="transfer">
+                                <label class="form-check-label" for="transfer">
+                                    <!-- <img src="images/bank-transfer-logo.png" alt="Transferencia Bancaria" class="payment-logo"> -->
+                                    <i class="fa-solid fa-building-columns"></i>
+                                    Transferencia bancaria
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="cash" value="cash">
+                                <label class="form-check-label" for="cash">
+                                    <i class="fas fa-money-bill-wave payment-icon"></i>
+                                    Pago en efectivo en el club
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="acceptTerms" required>
+                    <label class="form-check-label" for="acceptTerms">
+                        Acepto los <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">términos y condiciones</a> del torneo
+                    </label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-prev" id="prevToStep2"><i class="fas fa-arrow-left me-2"></i> Anterior</button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-check me-2"></i> Confirmar Inscripción
+                    </button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Modal Términos y Condiciones -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Términos y Condiciones del Torneo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Reglamento del Torneo</h6>
+                    <p>El torneo se regirá por el reglamento oficial de la Federación Internacional de Pádel...</p>
+                    
+                    <h6>2. Comportamiento</h6>
+                    <p>Los jugadores deberán mantener una conducta deportiva en todo momento...</p>
+                    
+                    <h6>3. Inscripciones</h6>
+                    <p>Las inscripciones son irrevocables y el pago no será reembolsable...</p>
+                    
+                    <h6>4. Horarios</h6>
+                    <p>Los partidos se jugarán en los horarios establecidos por la organización...</p>
+                    
+                    <h6>5. Premios</h6>
+                    <p>Los premios se entregarán al finalizar el torneo y no podrán ser canjeados por dinero...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmación Exitosa -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">¡Inscripción Exitosa!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4 class="my-3">Tu equipo ha sido registrado</h4>
+                    <p>Hemos enviado los detalles de tu inscripción al correo electrónico registrado.</p>
+                    <div class="confirmation-number">
+                        <span>Número de confirmación:</span>
+                        <strong>TN2024-00457</strong>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="javascripts/registro-jug-torneo.js"></script>
+</body>
+</html>

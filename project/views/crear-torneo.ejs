@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación de Torneo | Torneo Pádel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/crear-torneo.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="tournament-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="torneos.html">
+                        <i class="fas fa-arrow-left me-2"></i> Volver
+                    </a>
+                    <h1 class="tournament-title">CREACIÓN DE TORNEO</h1>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Formulario Principal -->
+    <main class="tournament-form-container">
+        <form id="tournamentForm">
+            <!-- Información Básica -->
+            <div class="form-section">
+                <h2><i class="fas fa-info-circle me-2"></i> Información General</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="tournamentName" class="form-label">Nombre del Torneo*</label>
+                        <input type="text" class="form-control" id="tournamentName" placeholder="Ej: Abierto de Verano 2024" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="tournamentType" class="form-label">Tipo de Torneo*</label>
+                        <select class="form-select" id="tournamentType" required>
+                            <option value="" selected disabled>Seleccionar...</option>
+                            <option value="ranking">Por Ranking</option>
+                            <option value="handicap">Por Handicap</option>
+                            <option value="open">Abierto</option>
+                            <option value="corporate">Corporativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="startDate" class="form-label">Fecha de Inicio*</label>
+                        <input type="date" class="form-control" id="startDate" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="endDate" class="form-label">Fecha de Finalización*</label>
+                        <input type="date" class="form-control" id="endDate" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="registrationDeadline" class="form-label">Cierre de Inscripción*</label>
+                        <input type="date" class="form-control" id="registrationDeadline" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="tournamentDescription" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="tournamentDescription" rows="3" placeholder="Detalles sobre el torneo..."></textarea>
+                </div>
+            </div>
+
+            <!-- Configuración de Categorías -->
+            <div class="form-section">
+                <h2><i class="fas fa-trophy me-2"></i> Categorías</h2>
+                <div class="mb-3">
+                    <label class="form-label">Cantidad de Categorías*</label>
+                    <div class="d-flex align-items-center gap-3">
+                        <button type="button" class="btn btn-outline-secondary" id="decreaseCategories">-</button>
+                        <input type="number" class="form-control text-center" id="categoryCount" value="1" min="1" max="10" readonly style="width: 70px;">
+                        <button type="button" class="btn btn-outline-secondary" id="increaseCategories">+</button>
+                    </div>
+                </div>
+
+                <div id="categoriesContainer">
+                    <!-- Categorías se generarán dinámicamente aquí -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h4>Categoría 1</h4>
+                            <button type="button" class="btn btn-sm btn-outline-danger remove-category" disabled>
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="categoryName1" class="form-label">Nombre*</label>
+                                <input type="text" class="form-control category-name" id="categoryName1" placeholder="Ej: 7ma Hombres" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="categoryGender1" class="form-label">Género*</label>
+                                <select class="form-select" id="categoryGender1" required>
+                                    <option value="male">Hombres</option>
+                                    <option value="female">Mujeres</option>
+                                    <option value="mixed">Mixto</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="categoryLevel1" class="form-label">Nivel*</label>
+                                <select class="form-select" id="categoryLevel1" required>
+                                    <option value="3">3ra</option>
+                                    <option value="4">4ta</option>
+                                    <option value="5">5ta</option>
+                                    <option value="6">6ta</option>
+                                    <option value="7" selected>7ma</option>
+                                    <option value="8">8va</option>
+                                    <option value="9">9na</option>
+                                    <option value="10">10ma</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="categoryFee1" class="form-label">Cuota de Inscripción (ARS)</label>
+                                <input type="number" class="form-control" id="categoryFee1" min="0" placeholder="Opcional">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="categoryMaxTeams1" class="form-label">Máximo de equipos</label>
+                                <input type="number" class="form-control" id="categoryMaxTeams1" min="2" placeholder="Opcional">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuración de Canchas -->
+            <div class="form-section">
+                <h2><i class="fas fa-map-marker-alt me-2"></i> Canchas y Horarios</h2>
+                <div class="mb-3">
+                    <label for="venueSelect" class="form-label">Complejo de Canchas*</label>
+                    <select class="form-select" id="venueSelect" required>
+                        <option value="" selected disabled>Seleccionar complejo...</option>
+                        <option value="1">Club Pádel Buenos Aires (5 canchas)</option>
+                        <option value="2">Pádel Center (8 canchas)</option>
+                        <option value="3">Sports Pádel (3 canchas)</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Horarios de Juego*</label>
+                    <div class="schedule-container">
+                        <div class="schedule-day">
+                            <h5>Lunes a Viernes</h5>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="weekdayStart" class="form-label">Hora de inicio*</label>
+                                    <input type="time" class="form-control" id="weekdayStart" value="18:00" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="weekdayEnd" class="form-label">Hora de fin*</label>
+                                    <input type="time" class="form-control" id="weekdayEnd" value="23:00" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="schedule-day">
+                            <h5>Sábados y Domingos</h5>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="weekendStart" class="form-label">Hora de inicio*</label>
+                                    <input type="time" class="form-control" id="weekendStart" value="09:00" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="weekendEnd" class="form-label">Hora de fin*</label>
+                                    <input type="time" class="form-control" id="weekendEnd" value="22:00" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="matchDuration" class="form-label">Duración de partidos*</label>
+                    <select class="form-select" id="matchDuration" required>
+                        <option value="60">1 hora</option>
+                        <option value="90" selected>1 hora 30 minutos</option>
+                        <option value="120">2 horas</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="cancelTournamentBtn">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save me-2"></i> Crear Torneo
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Modal de Confirmación -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Creación de Torneo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="confirmationDetails">
+                    <!-- Detalles se insertarán aquí -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Atrás</button>
+                    <button type="button" class="btn btn-success" id="confirmTournamentBtn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascripts/crear-torneo.js"></script>
+</body>
+</html>

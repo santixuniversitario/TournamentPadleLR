@@ -31,4 +31,39 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
+
+
+
+/// CRUD CANCHAS
+
+router.get('/alta-canchas', function(req, res, next) {
+  res.render('alta-canchas');
+});
+
+router.get('/editar-canchas', function(req, res, next) {
+  res.render('editar-canchas');
+});
+
+
+
+// CRUD PARTIDOS
+
+router.get('/carga-partidos', function(req, res, next) {
+  res.render('carga-partidos');
+});
+
+
+
+//CRUD TORNEO
+router.get('/crear-torneo', function(req, res, next) {
+  res.render('crear-torneo');
+});
+
+
+router.get('/reg-jugador-torneo', function(req, res, next) {
+  res.render('registro-jug-torneo');
+});
+
+
+
 module.exports = router;

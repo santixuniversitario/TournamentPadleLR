@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cancha | Torneo Pádel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/editar-canchas.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="edit-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="gestion-canchas.html">
+                        <i class="fas fa-arrow-left me-2"></i> Volver
+                    </a>
+                    <h1 class="edit-title">EDITAR CANCHA #3</h1>
+                    <div class="d-flex">
+                        <button class="btn btn-danger me-2" id="deleteBtn">
+                            <i class="fas fa-trash-alt me-1"></i> Eliminar
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Formulario de Edición -->
+    <main class="edit-container">
+        <form id="editCourtForm">
+            <!-- Sección Información Básica -->
+            <div class="form-section">
+                <h2><i class="fas fa-info-circle me-2"></i> Información Básica</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="editClubName" class="form-label">Nombre del Club*</label>
+                        <input type="text" class="form-control" id="editClubName" value="Club Pádel Buenos Aires" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="editCourtNumber" class="form-label">Número de Cancha*</label>
+                        <input type="number" class="form-control" id="editCourtNumber" value="3" min="1" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="editStatus" class="form-label">Estado*</label>
+                    <select class="form-select" id="editStatus" required>
+                        <option value="active" selected>Activa</option>
+                        <option value="maintenance">En mantenimiento</option>
+                        <option value="inactive">Inactiva</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Sección Ubicación -->
+            <div class="form-section">
+                <h2><i class="fas fa-map-marker-alt me-2"></i> Ubicación</h2>
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label for="editAddress" class="form-label">Dirección*</label>
+                        <input type="text" class="form-control" id="editAddress" value="Av. Corrientes 1234" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="editCity" class="form-label">Ciudad*</label>
+                        <input type="text" class="form-control" id="editCity" value="Buenos Aires" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="editProvince" class="form-label">Provincia*</label>
+                        <select class="form-select" id="editProvince" required>
+                            <option value="BA" selected>Buenos Aires</option>
+                            <option value="CBA">Córdoba</option>
+                            <option value="SF">Santa Fe</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="editZipCode" class="form-label">Código Postal</label>
+                        <input type="text" class="form-control" id="editZipCode" value="C1043">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="editLocationNotes" class="form-label">Referencias adicionales</label>
+                    <textarea class="form-control" id="editLocationNotes" rows="2">Entrada por la puerta roja</textarea>
+                </div>
+            </div>
+
+            <!-- Sección Características -->
+            <div class="form-section">
+                <h2><i class="fas fa-clipboard-list me-2"></i> Características Técnicas</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="editCourtType" class="form-label">Tipo de Cancha*</label>
+                        <select class="form-select" id="editCourtType" required>
+                            <option value="indoor" selected>Indoor (Cubierta)</option>
+                            <option value="outdoor">Outdoor (Descubierta)</option>
+                            <option value="semi">Semi-cubierta</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="editSurface" class="form-label">Superficie*</label>
+                        <select class="form-select" id="editSurface" required>
+                            <option value="cemento" selected>Cemento poroso</option>
+                            <option value="sintetica">Césped sintético</option>
+                            <option value="moqueta">Moqueta</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="editLighting" class="form-label">Iluminación*</label>
+                        <select class="form-select" id="editLighting" required>
+                            <option value="excelente">Excelente</option>
+                            <option value="buena" selected>Buena</option>
+                            <option value="regular">Regular</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="editCapacity" class="form-label">Capacidad de espectadores</label>
+                        <input type="number" class="form-control" id="editCapacity" value="50" min="0">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Sección Multimedia -->
+            <div class="form-section">
+                <h2><i class="fas fa-images me-2"></i> Multimedia</h2>
+                <div class="mb-4">
+                    <label class="form-label">Fotos actuales</label>
+                    <div class="photo-gallery">
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/300x200?text=Cancha+1" alt="Cancha 1">
+                            <button class="delete-photo" aria-label="Eliminar foto">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/300x200?text=Cancha+2" alt="Cancha 2">
+                            <button class="delete-photo" aria-label="Eliminar foto">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="add-photo">
+                            <label for="addPhotos" class="add-photo-btn">
+                                <i class="fas fa-plus"></i>
+                                <span>Agregar fotos</span>
+                            </label>
+                            <input type="file" id="addPhotos" multiple accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="editVideoLink" class="form-label">Enlace a video (opcional)</label>
+                    <input type="url" class="form-control" id="editVideoLink" placeholder="https://youtube.com/..." value="https://youtu.be/ejemplo">
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="cancelEditBtn">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save me-2"></i> Guardar Cambios
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Modal de Confirmación -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro que deseas eliminar permanentemente esta cancha? Esta acción no se puede deshacer.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar Cancha</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascripts/editar-canchas.js"></script>
+</body>
+</html>
