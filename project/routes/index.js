@@ -66,4 +66,8 @@ router.get('/reg-jugador-torneo', function(req, res, next) {
 
 
 
+router.get('/prueba-creacion', function(req, res, next) {
+  res.render('prueba-formacionTorneo');
+});
+
 module.exports = router;

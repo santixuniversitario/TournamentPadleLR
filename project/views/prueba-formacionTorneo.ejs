@@ -1,0 +1,95 @@
+<div class="fase-grupos">
+  <h2>Fase de Grupos</h2>
+  <div class="grupos-container" id="grupos-container">
+    <!-- Se llenará dinámicamente con JS -->
+  </div>
+  
+  <button id="btn-generar-fase-final" class="btn btn-success">
+    Generar Fase Final
+  </button>
+</div>
+
+<div class="fase-final" id="fase-final" style="display: none;">
+  <h2>Fase Final</h2>
+  <div id="dieciseisavos-container"></div>
+  <div id="octavos-container"></div>
+  <div id="cuartos-container"></div>
+  <div id="semifinales-container"></div>
+  <div id="final-container"></div>
+  
+  <button id="btn-avanzar-fase" class="btn btn-primary">
+    Avanzar a Siguiente Fase
+  </button>
+</div>
+
+<script>
+// Función para cargar y mostrar los grupos
+async function cargarGrupos() {
+  const response = await fetch('/torneo/grupos/aleatorio', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ numGrupos: 8 }) // Ejemplo con 8 grupos
+  });
+  
+  const grupos = await response.json();
+  const container = document.getElementById('grupos-container');
+  
+  grupos.forEach(grupo => {
+    const grupoHTML = `
+      <div class="grupo">
+        <h3>${grupo.nombre}</h3>
+        <ul>
+          ${grupo.jugadores.map(j => `<li>${j.nombre}</li>`).join('')}
+        </ul>
+        <h4>Partidos</h4>
+        <div class="partidos">
+          ${grupo.partidos.map(p => `
+            <div class="partido">
+              ${p.jugador1.nombre} vs ${p.jugador2.nombre}
+              <input type="text" placeholder="Ganador ID" data-partido-id="${p.id}">
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+    container.innerHTML += grupoHTML;
+  });
+}
+
+// Generar fase final
+document.getElementById('btn-generar-fase-final').addEventListener('click', async () => {
+  // Primero registrar resultados de partidos de grupos
+  await registrarResultadosGrupos();
+  
+  const response = await fetch('/torneo/fase-final', { method: 'POST' });
+  const faseFinal = await response.json();
+  
+  mostrarFaseFinal(faseFinal);
+  document.getElementById('fase-final').style.display = 'block';
+});
+
+// Función para mostrar la fase final
+function mostrarFaseFinal(faseFinal) {
+  if (faseFinal.dieciseisavos) {
+    document.getElementById('dieciseisavos-container').innerHTML = `
+      <h3>Dieciseisavos de Final</h3>
+      ${faseFinal.dieciseisavos.map(partidoHTML).join('')}
+    `;
+  }
+  
+  // Repetir para otras fases...
+}
+
+function partidoHTML(partido) {
+  return `
+    <div class="partido">
+      ${partido.jugador1.nombre} vs ${partido.jugador2?.nombre || 'BYE'}
+      <select class="form-select ganador-partido" data-partido-id="${partido.id}">
+        <option value="">Seleccione ganador</option>
+        <option value="${partido.jugador1.id}">${partido.jugador1.nombre}</option>
+        ${partido.jugador2 ? `<option value="${partido.jugador2.id}">${partido.jugador2.nombre}</option>` : ''}
+      </select>
+    </div>
+  `;
+}
+</script>

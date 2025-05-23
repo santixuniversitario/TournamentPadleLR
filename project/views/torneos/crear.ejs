@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+
+        <%- include('../partials/torneo/header') %>
+        <h2>Crear Nuevo Torneo</h2>
+      </div>
+      <div class="card-body">
+        <form action="/torneos" method="POST">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre del Torneo</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Crear Torneo</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
