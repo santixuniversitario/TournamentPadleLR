@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo Deportivo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome (para íconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+<body>
+     <%- include('./partials/header') %>
+   
+   
+
+    <!-- Administración del Torneo -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Administración del Torneo</h2>
+            <div class="row g-4 justify-content-center">
+                <!-- Crear Torneo -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-success shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-trophy fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Crear Torneo</h5>
+                            <p class="card-text">Configura un nuevo torneo deportivo</p>
+                            <a href="/crear-torneo" class="btn btn-success btn-hover">Acceder</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alta de Categoría -->
+                <div class="col-md-4 col-sm-6" style="display: none;">
+                    <div class="card h-100 border-success shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-layer-group fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Alta de Categoría</h5>
+                            <p class="card-text">Agrega nuevas categorías al torneo</p>
+                            <a href="/alta-categoria" class="btn btn-success btn-hover">Acceder</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modificación/Baja de Categoría -->
+                <div class="col-md-4 col-sm-6" style="display: none;">
+                    <div class="card h-100 border-success shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-edit fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Gestión de Categorías</h5>
+                            <p class="card-text">Modifica o elimina categorías existentes</p>
+                            <a href="/gestion-categorias" class="btn btn-success btn-hover">Acceder</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alta de Cancha -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-success shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marked-alt fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Alta de Cancha</h5>
+                            <p class="card-text">Registra nuevas canchas para el torneo</p>
+                            <a href="/alta-canchas" class="btn btn-success btn-hover">Acceder</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modificación/Baja de Cancha -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-success shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-edit fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Gestión de Canchas</h5>
+                            <p class="card-text">Modifica o elimina canchas existentes</p>
+                            <a href="/editar-canchas" class="btn btn-success btn-hover">Acceder</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modificación/Baja de Cancha -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-success shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-edit fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Gestión de Partidos</h5>
+                            <p class="card-text">Modifica o elimina Partidos</p>
+                            <a href="/carga-partidos" class="btn btn-success btn-hover">Acceder</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Sponsors -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">Sponsors</h2>
+            <div class="row justify-content-center">
+                <div class="col-6 col-md-3 mb-4">
+                    <img src="/images/logo_torneo/monster-energy-logo.svg" alt="Sponsor 1" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <img src="/images/logo_torneo/lg-logo-1.png" alt="Sponsor 2" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <img src="/images/logo_torneo/mastercard-logo-0.png" alt="Sponsor 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Torneo Deportivo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Personalizado (para efectos de botones) -->
+    <script src="/javascripts/homestyle.js"></script>
+</body>
+</html>

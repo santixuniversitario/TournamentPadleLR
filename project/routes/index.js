@@ -10,6 +10,10 @@ router.get('/prueba', function(req, res, next) {
   res.render('home-prueba');
 });
 
+router.get('/admin-torneo', function(req, res, next) {
+  res.render('admin-torneo');
+});
+
 router.get('/registro', function(req, res, next) {
   res.render('registro-jugador');
 });

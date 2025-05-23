@@ -75,3 +75,270 @@ header {
         max-width: 200px;
     }
 }
+
+        /* Estilos para la sección de finales */
+        .finals-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+        
+        .champion-card {
+            animation: pulse-gold 2s infinite;
+            border: 2px solid #FFD700;
+        }
+        
+        .champion-icon {
+            animation: bounce 1s infinite alternate;
+        }
+        
+        .champion-text {
+            color: #FFD700;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+        }
+        
+        .trophy-icon {
+            animation: spin 3s linear infinite;
+        }
+        
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+            100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+        }
+        
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            25% { transform: translate(-50%, -50%) rotate(15deg); }
+            50% { transform: translate(-50%, -50%) rotate(0deg); }
+            75% { transform: translate(-50%, -50%) rotate(-15deg); }
+            100% { transform: translate(-50%, -50%) rotate(0deg); }
+        }
+        
+        /* Estilos para la foto de campeones */
+        .champions-photo {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .champions-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://img.freepik.com/free-vector/golden-crown-icon_107790-363.jpg') center/contain no-repeat;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .champions-photo .card {
+            transition: transform 0.3s;
+        }
+        
+        .champions-photo .card:hover {
+            transform: translateY(-5px);
+        }
+                /* Estilos para la sección de campeones */
+        .champion-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .animate-charcter {
+            background-image: linear-gradient(
+                -225deg,
+                #d4af37 0%,
+                #f1c40f 29%,
+                #e67e22 67%,
+                #d4af37 100%
+            );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 3s linear infinite;
+            display: inline-block;
+        }
+        
+        @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        .gold-text {
+            background: linear-gradient(to right, #d4af37, #f1c40f, #d4af37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .champion-subtitle {
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .champion-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #d4af37, #f1c40f, #d4af37, transparent);
+            animation: underline 3s linear infinite;
+        }
+        
+        @keyframes underline {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
+        }
+        
+        .trophy-icon {
+            color: #d4af37;
+            display: inline-block;
+            animation: bounce 0.5s infinite alternate;
+        }
+        
+        /* Animación de confeti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #f00;
+            opacity: 0;
+            z-index: 1;
+            animation: confetti 5s linear infinite;
+        }
+        
+        .confetti:nth-child(1) {
+            background: #f1c40f;
+            left: 10%;
+            animation-delay: 0;
+        }
+        
+        .confetti:nth-child(2) {
+            background: #e74c3c;
+            left: 20%;
+            animation-delay: 0.5s;
+        }
+        
+        .confetti:nth-child(3) {
+            background: #2ecc71;
+            left: 30%;
+            animation-delay: 1.5s;
+        }
+        
+        .confetti:nth-child(4) {
+            background: #3498db;
+            left: 40%;
+            animation-delay: 2s;
+        }
+        
+        .confetti:nth-child(5) {
+            background: #9b59b6;
+            left: 50%;
+            animation-delay: 2.5s;
+        }
+        
+        @keyframes confetti {
+            0% {
+                opacity: 1;
+                top: -10px;
+                transform: rotate(0deg);
+            }
+            100% {
+                opacity: 1;
+                top: 100%;
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Medallas flotantes */
+        .floating-medal {
+            position: absolute;
+            color: #d4af37;
+            font-size: 2rem;
+            opacity: 0.7;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .medal-1 {
+            top: 20%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .medal-2 {
+            top: 60%;
+            left: 80%;
+            animation-delay: 1s;
+        }
+        
+        .medal-3 {
+            top: 30%;
+            left: 90%;
+            animation-delay: 2s;
+            font-size: 3rem;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+        
+        /* Efecto para la imagen de campeones */
+        .champion-image {
+            position: relative;
+            transition: transform 0.5s;
+        }
+        
+        .champion-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .champion-card {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #d4af37 !important;
+        }
+        
+        .champion-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.pixabay.com/photo/2017/01/31/23/42/decorative-2028039_960_720.png') center/contain no-repeat;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .champion-caption {
+            position: relative;
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.1), rgba(241, 196, 15, 0.2), rgba(212, 175, 55, 0.1)) !important;
+        }
