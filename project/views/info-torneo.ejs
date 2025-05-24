@@ -152,7 +152,53 @@
             .carousel-item img {
                 height: 100%;
             }
-        }
+        }  /* Estilos para tablas responsive */
+.mobile-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Para un scroll suave en iOS */
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.table-responsive {
+    min-width: 600px; /* Ancho mínimo para mantener la estructura */
+}
+
+@media (min-width: 768px) {
+    .table-responsive {
+        min-width: 100%; /* En pantallas grandes ocupa el 100% */
+    }
+}
+
+/* Estilos para mejorar la experiencia en móvil */
+@media (max-width: 767px) {
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .mobile-scroll-container {
+        position: relative;
+    }
+    
+    .mobile-scroll-container::after {
+        content: "← Desliza para ver más →";
+        display: block;
+        text-align: center;
+        padding: 8px 0;
+        color: #666;
+        font-size: 0.8rem;
+    }
+    
+    .table th, .table td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+        
     </style>
 </head>
 <body>
