@@ -47,6 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Simulación de redirección después del login
         alert('Inicio de sesión exitoso (simulación)');
-        // window.location.href = 'perfil.html';
+         window.location.href = '/ver-jugador';
     });
 });
