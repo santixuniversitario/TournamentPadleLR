@@ -196,6 +196,47 @@
         padding: 0.5rem;
         font-size: 0.85rem;
     }
+
+     .badge-match, .badge {
+        font-size: 0.75rem;
+        padding: 0.25em 0.5em;
+    }
+
+  
+        /* Efecto para la imagen de campeones */
+        .champion-image {
+            position: relative;
+            transition: transform 0.5s;
+        }
+        
+        .champion-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .champion-card {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #d4af37 !important;
+        }
+        
+        .champion-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.pixabay.com/photo/2017/01/31/23/42/decorative-2028039_960_720.png') center/contain no-repeat;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .champion-caption {
+            position: relative;
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.1), rgba(241, 196, 15, 0.2), rgba(212, 175, 55, 0.1)) !important;
+        }
+
 }
 
         
