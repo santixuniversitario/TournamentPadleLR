@@ -12,8 +12,6 @@
 </head>
 <body>
      <%- include('./partials/header') %>
-   
-   
 
     <!-- Administración del Torneo -->
     <section class="py-5 bg-white">
@@ -31,9 +29,19 @@
                         </div>
                     </div>
                 </div>
-                
+                 <!-- Inscriptos al Torneo -->
+                                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-success shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-trophy fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Ver Inscriptos</h5>
+                            <p class="card-text">Vee y verifica los Inscriptos al torneo</p>
+                            <a href="/ver-inscriptos" class="btn btn-success btn-hover">Acceder</a>
+                        </div>
+                    </div>
+                </div>
                 <!-- Alta de Categoría -->
-                <div class="col-md-4 col-sm-6" style="display: none;">
+                <div class="col-md-4 col-sm-6" style="display: none;"n>
                     <div class="card h-100 border-success shadow-sm">
                         <div class="card-body text-center">
                             <i class="fas fa-layer-group fa-3x text-success mb-3"></i>
@@ -84,12 +92,21 @@
                     <div class="card h-100 border-success shadow-sm">
                         <div class="card-body text-center">
                             <i class="fas fa-edit fa-3x text-success mb-3"></i>
-                            <h5 class="card-title">Gestión de Partidos</h5>
-                            <p class="card-text">Modifica o elimina Partidos</p>
+                            <h5 class="card-title">Creador de Partidos</h5>
+                            <p class="card-text">Crea Partidos</p>
                             <a href="/carga-partidos" class="btn btn-success btn-hover">Acceder</a>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 border-success shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-edit fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Editar de Partidos</h5>
+                            <p class="card-text">Modifica o elimina Partidos</p>
+                            <a href="/editar-partidos" class="btn btn-success btn-hover">Acceder</a>
+                        </div>
+                    </div>
             </div>
         </div>
     </section>

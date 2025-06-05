@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Inscriptos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/ver-inscriptos.css">
+  </head>
+
+<body>
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4"><i class="fas fa-users"></i> Inscriptos por Torneo</h1>
+    <div class="row">
+        <% /* Suponiendo que 'torneos' es un array de objetos: { nombre, duplas: [{ jugador1, jugador2 }] } */ %>
+        <% torneos.forEach(function(torneo) { %>
+            <div class="col-md-6 mb-4">
+                <div class="card shadow torneo-card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="fas fa-trophy me-2"></i> <%= torneo.nombre %></h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Jugador 1</th>
+                                    <th>Jugador 2</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% torneo.duplas.forEach(function(dupla, idx) { %>
+                                    <tr>
+                                        <td><%= idx + 1 %></td>
+                                        <td><%= dupla.jugador1 %></td>
+                                        <td><%= dupla.jugador2 %></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-warning me-1 edit-dupla-btn"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#editDuplaModal"
+                                                data-torneo="<%= torneo.nombre %>"
+                                                data-idx="<%= idx %>"
+                                                data-jugador1="<%= dupla.jugador1 %>"
+                                                data-jugador2="<%= dupla.jugador2 %>"
+                                                title="Editar dupla">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-danger me-1" title="Eliminar dupla">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-success" title="Agregar jugador">
+                                                <i class="fas fa-user-plus"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                        <% if (torneo.duplas.length === 0) { %>
+                            <div class="alert alert-info mb-0">No hay duplas inscriptas aún.</div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+<!-- Modal para editar dupla -->
+<div class="modal fade" id="editDuplaModal" tabindex="-1" aria-labelledby="editDuplaModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editDuplaModalLabel">Editar Dupla</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="editJugador1" class="form-label">Jugador 1</label>
+          <select class="form-select" id="editJugador1" required>
+            <option value="" disabled>Seleccionar jugador...</option>
+            <option value="Martín López">Martín López</option>
+            <option value="Carlos Sánchez">Carlos Sánchez</option>
+            <option value="Ana Torres">Ana Torres</option>
+            <option value="Javier Ruiz">Javier Ruiz</option>
+            <!-- Agrega más jugadores aquí -->
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="editJugador2" class="form-label">Jugador 2</label>
+          <select class="form-select" id="editJugador2" required>
+            <option value="" disabled>Seleccionar jugador...</option>
+            <option value="Martín López">Martín López</option>
+            <option value="Carlos Sánchez">Carlos Sánchez</option>
+            <option value="Ana Torres">Ana Torres</option>
+            <option value="Javier Ruiz">Javier Ruiz</option>
+            <!-- Agrega más jugadores aquí -->
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var editModal = document.getElementById('editDuplaModal');
+  var jugador1Select = document.getElementById('editJugador1');
+  var jugador2Select = document.getElementById('editJugador2');
+
+  // Cuando se hace click en el botón de editar
+  document.querySelectorAll('.edit-dupla-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var jugador1 = btn.getAttribute('data-jugador1');
+      var jugador2 = btn.getAttribute('data-jugador2');
+      jugador1Select.value = jugador1;
+      jugador2Select.value = jugador2;
+    });
+  });
+
+  // Aquí puedes agregar el manejo del submit para guardar los cambios
+  // document.querySelector('#editDuplaModal form').addEventListener('submit', function(e) {
+  //   e.preventDefault();
+  //   // Tu lógica para guardar cambios
+  // });
+});
+</script>
+
+<!-- Bootstrap JS y tu script personalizado -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/javascripts/ver-partidos.js"></script>
+</body>
+</html>

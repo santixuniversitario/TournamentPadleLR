@@ -56,6 +56,9 @@ router.get('/carga-partidos', function(req, res, next) {
   res.render('carga-partidos');
 });
 
+router.get('/editar-partidos', function(req, res, next) {
+  res.render('editar-partidos');
+});
 
 
 //CRUD TORNEO
@@ -68,6 +71,26 @@ router.get('/reg-jugador-torneo', function(req, res, next) {
   res.render('registro-jug-torneo');
 });
 
+router.get('/ver-inscriptos', function(req, res, next) {
+  res.render('ver-inscriptos', {
+    torneos: [
+      {
+        nombre: "Torneo Candu",
+        duplas: [
+          { jugador1: "Martín López", jugador2: "Carlos Sánchez" },
+          { jugador1: "Ana Torres", jugador2: "Javier Ruiz" }
+        ]
+      },
+      {
+        nombre: "Torneo Golden Point",
+        duplas: [
+          { jugador1: "Pedro Gómez", jugador2: "Lucas Díaz" }
+        ]
+      }
+      // Puedes agregar más torneos aquí
+    ]
+  });
+});
 
 
 router.get('/prueba-creacion', function(req, res, next) {
